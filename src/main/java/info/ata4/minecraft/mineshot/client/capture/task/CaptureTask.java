@@ -52,7 +52,7 @@ public class CaptureTask implements RenderTickTask {
                 break;
 
             // capture screenshot and restore viewport size
-            case 3:
+            case 5:
                 try {
                     FramebufferCapturer fbc = new FramebufferCapturer();
                     FramebufferWriter fbw = new FramebufferWriter(file, fbc);
@@ -65,6 +65,6 @@ public class CaptureTask implements RenderTickTask {
         }
         
         frame++;
-        return frame > 3;
+        return frame > 5;
     }
 }

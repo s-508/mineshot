@@ -50,6 +50,19 @@ public class ScreenshotHandler {
         
         ClientRegistry.registerKeyBinding(keyCapture);
     }
+
+    public void capture() {
+        if (task != null) {
+            return;
+        }
+
+        taskFile = getScreenshotFile();
+        if (config.captureTiled.get()) {
+            task = new CaptureTiledTask(config, taskFile);
+        } else {
+            task = new CaptureTask(config, taskFile);
+        }
+    }
     
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
@@ -59,12 +72,7 @@ public class ScreenshotHandler {
         }
         
         if (keyCapture.isPressed()) {
-            taskFile = getScreenshotFile();
-            if (config.captureTiled.get()) {
-                task = new CaptureTiledTask(config, taskFile);
-            } else {
-                task = new CaptureTask(config, taskFile);
-            }
+            capture();
         }
     }
     

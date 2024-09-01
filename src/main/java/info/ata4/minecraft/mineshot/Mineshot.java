@@ -12,6 +12,10 @@ package info.ata4.minecraft.mineshot;
 import info.ata4.minecraft.mineshot.client.OrthoViewHandler;
 import info.ata4.minecraft.mineshot.client.ScreenshotHandler;
 import info.ata4.minecraft.mineshot.client.config.MineshotConfig;
+import info.ata4.minecraft.mineshot.client.command.HugeScreenshotCommand;
+import info.ata4.minecraft.mineshot.client.command.MinimapCommand;
+import info.ata4.minecraft.mineshot.client.command.ZoomCommand;
+import net.minecraftforge.client.command.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -43,6 +47,8 @@ public class Mineshot {
     
     @Instance(ID)
     public static Mineshot instance;
+    public static OrthoViewHandler ovh;
+    public static ScreenshotHandler sch;
     
     private ModMetadata metadata;
     private MineshotConfig config;
@@ -67,15 +73,22 @@ public class Mineshot {
         config = new MineshotConfig(new Configuration(evt.getSuggestedConfigurationFile()));
         metadata = evt.getModMetadata();
     }
-    
+
     @EventHandler
     public void onInit(FMLInitializationEvent evt) {
-        ScreenshotHandler sch = new ScreenshotHandler(config);
+        sch = new ScreenshotHandler(config);
         MinecraftForge.EVENT_BUS.register(sch);
-        
-        OrthoViewHandler ovh = new OrthoViewHandler();
+
+        ovh = new OrthoViewHandler();
         MinecraftForge.EVENT_BUS.register(ovh);
-        
+
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent evt) {
+        ClientCommandHandler.instance.registerCommand(new MinimapCommand(config));
+        ClientCommandHandler.instance.registerCommand(new ZoomCommand());
+        ClientCommandHandler.instance.registerCommand(new HugeScreenshotCommand(config));
     }
 }

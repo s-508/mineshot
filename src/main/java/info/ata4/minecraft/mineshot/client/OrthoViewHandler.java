@@ -105,10 +105,10 @@ public class OrthoViewHandler {
         // disable in multiplayer
         // Of course, programmers could just delete this check and abuse the
         // orthographic camera, but at least the official build won't support it
-        if (!MC.isSingleplayer()) {
-            ChatUtils.print("mineshot.orthomp");
-            return;
-        }
+        // if (!MC.isSingleplayer()) {
+        //     ChatUtils.print("mineshot.orthomp");
+        //     return;
+        // }
         
         if (!enabled) {
             clippingEnabled = clippingHelper.isEnabled();
@@ -197,6 +197,17 @@ public class OrthoViewHandler {
         if (keyRotateD.isKeyDown()) {
             xRot -= ROTATE_STEP * multi;
         }
+    }
+
+    public float getZoom() { return zoom; }
+    public void setZoom(float zoom) {
+        this.zoom = zoom;
+    }
+
+    public void setZoomAndRotation(float zoom, float xRot, float yRot) {
+        this.zoom = zoom;
+        this.xRot = xRot;
+        this.yRot = yRot;
     }
     
     @SubscribeEvent
