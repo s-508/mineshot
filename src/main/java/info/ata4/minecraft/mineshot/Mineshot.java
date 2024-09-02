@@ -15,7 +15,7 @@ import info.ata4.minecraft.mineshot.client.config.MineshotConfig;
 import info.ata4.minecraft.mineshot.client.command.HugeScreenshotCommand;
 import info.ata4.minecraft.mineshot.client.command.MinimapCommand;
 import info.ata4.minecraft.mineshot.client.command.ZoomCommand;
-import net.minecraftforge.client.command.ClientCommandHandler;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;

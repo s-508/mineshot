@@ -16,6 +16,13 @@ key.mineshot.ortho.clip=Camera Change Clipping
 
 mineshot.orthomp=Orthographic perspective not available in multiplayer
 
+# commands
+commands.mineshot.hugescreenshot.usage=/hugescreenshot [width] [height]
+commands.mineshot.minimap.usage=/minimap <x1> <z1> <x2> <z2> [y] [pixels]
+commands.mineshot.minimap.info=Created minimap at (%f, %f, %f) | Zoom = %f | Capture size = (%d, %d)
+commands.mineshot.zoom.usage=/zoom [n]
+commands.mineshot.zoom.result=Zoom: %f
+
 # config
 mineshot.config.captureWidth=Width
 mineshot.config.captureWidth.tooltip=Screenshot capture width
