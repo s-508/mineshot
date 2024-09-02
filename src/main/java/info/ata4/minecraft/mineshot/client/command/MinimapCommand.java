@@ -50,8 +50,8 @@ public class MinimapCommand extends CommandBase {
             int captureWidth = (int) Math.ceil(Math.abs(x - x1) * pixelsPerBlock);
             int captureHeight = (int) Math.ceil(zoom * 2 * pixelsPerBlock);
 
-            double xPos = x + ((x1 - x) * 0.5);
-            double zPos = z + ((z1 - z) * 0.5);
+            double xPos = (x + x1) / 2;
+            double zPos = (z + z1) / 2;
             double yPos = args.length >= 5 ? parseDouble(sender.getPosition().getY(), args[4], false) : sender.getPosition().getY();
 
             sender.getCommandSenderEntity().setLocationAndAngles(xPos, yPos, zPos, 0, 90);

@@ -12,8 +12,8 @@ Commands
    - Takes a huge screenshot with optional `width` and `height` values.
 - `/minimap <x> <z> <x1> <z1> [y] [pixels]` (Singleplayer only)
    - Takes a screenshot that can be used as a minimap. Automatically teleports the player and sets `zoom`.
-   - `x` and `z` are the most negative (Northwest) coordinate bounds of the minimap.
-   - `x1` and `z1` are the most positive (Southeast) bounds.
+   - `x` and `z` are the game coordinate of one corner of the minimap.
+   - `x1` and `z1` are the coordinates of the opposite corner.
    - `y` can be optionally set to change the y coordinate the player is teleported to.
    - `pixels` determines the number of pixels each block length takes up. Defaults to 16.
 
